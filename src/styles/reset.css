@@ -1,0 +1,89 @@
+/* Reset CSS para Global CSS no Next.js */
+
+/* Redefinir a margem e o preenchimento em todos os elementos */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Redefinir as fontes e as cores padrão */
+body {
+  font-family: inherit;
+  line-height: 1.5;
+  color: inherit;
+  background-color: transparent;
+}
+
+/* Redefinir estilos de texto e links */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Redefinir listas */
+ul, ol {
+  list-style: none;
+}
+
+/* Redefinir elementos de formulário */
+input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 8px;
+  outline: none;
+  color: inherit;
+  background-color: #fff;
+}
+
+/* Redefinir botões */
+button {
+  font-family: inherit;
+  font-size: inherit;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline: none;
+  background-color: transparent;
+}
+
+/* Redefinir estilos de imagem */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Redefinir elementos de cabeçalho */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+}
+
+/* Redefinir elementos de parágrafo */
+p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Redefinir elementos de lista */
+ul, ol {
+  list-style: none;
+}
+
+/* Redefinir elementos de botão */
+button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+}
+
+/* Adicione mais redefinições de estilo conforme necessário */
+
+/* Seu CSS personalizado pode ser adicionado abaixo desta linha */
