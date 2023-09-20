@@ -1,5 +1,6 @@
 import { Box, Button, FormControl, FormLabel, Input, Text, VStack } from "@chakra-ui/react";
 import React, { useState } from "react";
+import CustomLink from "../../components/link/Link"; 
 
 const FullScreenForm = () => {
   const initialFormData = {
@@ -11,10 +12,10 @@ const FullScreenForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Aqui você pode adicionar lógica para enviar os dados do formulário para o servidor
+ 
     console.log("Dados do formulário enviados:", formData);
 
-    // Limpe o formulário redefinindo o estado para os valores iniciais
+  
     setFormData(initialFormData);
   };
 
@@ -28,7 +29,7 @@ const FullScreenForm = () => {
 
   return (
     <Box as="Flex"
-      minH="100vh"
+      minH="90vh"
       bg="#272727"
       color="white"
       display="flex"
@@ -76,9 +77,13 @@ const FullScreenForm = () => {
             </Button>
           </VStack>
         </form>
+        <CustomLink as="text" to="/pageregister">
+         
         <Text mt={4}     _hover={{ textDecoration: "none", color: "#0B68F4" }}>
-          Ainda não tem uma conta? <a href="#">Cadastre-se</a>
+          Ainda não tem uma conta? <a>Cadastre-se</a>
         </Text>
+        
+         </CustomLink>
       </Box>
     </Box>
   );
