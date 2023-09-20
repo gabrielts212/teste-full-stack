@@ -22,10 +22,7 @@ const FullScreenForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Agora você tem acesso aos campos de nome, email e senha em formData
     console.log("Dados do formulário enviados:", formData);
-
-    // Adicione o código para enviar os dados para a API ou realizar ações necessárias aqui
 
     setFormData(initialFormData);
   };
@@ -57,7 +54,7 @@ const FullScreenForm = () => {
         boxShadow="xl"
       >
         <Text fontSize="2xl" fontWeight="bold" mb={4}>
-        Cadastre-se
+          Cadastre-se
         </Text>
         <form onSubmit={handleSubmit}>
           <VStack spacing={4} width="100%" maxWidth="400px" as="flex">
