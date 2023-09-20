@@ -6,7 +6,7 @@ import React from 'react'
 const pageregister = () => {
   return (
     <div>
-      <Header/>
+      <Header />
       <Register/>
       <Footer/>
     </div>

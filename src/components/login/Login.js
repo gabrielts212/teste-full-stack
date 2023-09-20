@@ -1,10 +1,10 @@
-import { Box, Button, FormControl, FormLabel, Input, Text, VStack } from "@chakra-ui/react";
+import { Box, Button, FormControl, FormLabel, Input, Text, VStack, Flex } from "@chakra-ui/react";
 import React, { useState } from "react";
-import CustomLink from "../../components/link/Link"; 
+import CustomLink from "../../components/link/link";
 
 const FullScreenForm = () => {
   const initialFormData = {
-    username: "",
+    email: "",
     password: "",
   };
 
@@ -12,10 +12,9 @@ const FullScreenForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
- 
+
     console.log("Dados do formulário enviados:", formData);
 
-  
     setFormData(initialFormData);
   };
 
@@ -28,7 +27,7 @@ const FullScreenForm = () => {
   };
 
   return (
-    <Box as="Flex"
+    <Flex
       minH="90vh"
       bg="#272727"
       color="white"
@@ -42,21 +41,21 @@ const FullScreenForm = () => {
         maxW="100%"
         p={20}
         border="black"
-        borderRadius="lg"
-        boxShadow="lg"
+        borderRadius="xl"
+        boxShadow="xl"
       >
         <Text fontSize="2xl" fontWeight="bold" mb={4}>
           Faça login na sua conta
         </Text>
         <form onSubmit={handleSubmit}>
-          <VStack spacing={4} width="100%" maxWidth="400px">
+          <VStack spacing={4} width="100%" maxWidth="400px" as="flex">
             <FormControl>
-              <FormLabel htmlFor="username">Nome de Usuário</FormLabel>
+              <FormLabel htmlFor="email">Email</FormLabel>
               <Input
-                type="text"
-                id="username"
-                name="username"
-                value={formData.username}
+                type="email" 
+                id="email" 
+                name="email" 
+                value={formData.email}
                 onChange={handleInputChange}
                 bgColor="#758599"
               />
@@ -77,15 +76,8 @@ const FullScreenForm = () => {
             </Button>
           </VStack>
         </form>
-        <CustomLink as="text" to="/pageregister">
-         
-        <Text mt={4}     _hover={{ textDecoration: "none", color: "#0B68F4" }}>
-          Ainda não tem uma conta? <a>Cadastre-se</a>
-        </Text>
-        
-         </CustomLink>
       </Box>
-    </Box>
+    </Flex>
   );
 };
 

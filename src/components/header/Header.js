@@ -1,7 +1,7 @@
 import { Box, Flex, Text } from "@chakra-ui/react";
 import Image from "next/image";
 import Logo from "../../assets/favicon.ico";
-import CustomLink from "../../components/link/Link"; 
+import CustomLink from "../../components/link/link"; 
 const Header = () => {
   return (
     <Box>
@@ -35,7 +35,7 @@ const Header = () => {
           {/* </NextLink> */}
         </Box>
         <Box color="blue.500">
-          <Text>AA</Text>
+          <Text></Text>
         </Box>
       </Flex>
     </Box>
