@@ -1,24 +1,23 @@
-// pages/beer-list.js
-import { useEffect, useState } from 'react';
-import { Box, Heading, SimpleGrid, Text } from '@chakra-ui/react';
+import { useEffect, useState } from "react";
+import { Box, Heading, SimpleGrid, Text } from "@chakra-ui/react";
 
 function BeerList() {
   const [beers, setBeers] = useState([]);
 
   useEffect(() => {
-    fetch('https://api.punkapi.com/v2/beers')
+    fetch("https://api.punkapi.com/v2/beers")
       .then((response) => response.json())
       .then((data) => {
         setBeers(data);
       })
       .catch((error) => {
-        console.error('Ocorreu um erro ao buscar os dados da API:', error);
+        console.error("Ocorreu um erro ao buscar os dados da API:", error);
       });
   }, []);
 
   return (
-    <Box p={4} minH="90vh"    bg="#272727" color="white">
-      <Heading as="h1" mb={4}   textAlign="center">
+    <Box p={4} minH="90vh" bg="#272727" color="white">
+      <Heading as="h1" mb={4} textAlign="center">
         Lista de Cervejas
       </Heading>
       <SimpleGrid columns={2} spacing={4}>

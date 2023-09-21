@@ -1,17 +1,33 @@
-import Footer from '../components/footer/Footer'
-import Header from '../components/header/Header'
-import Login from '../components/login/Login'
-import Head from 'next/head'
-import Image from 'next/image'
-
-
+import { getCookie } from "cookies-next";
+import { verifica } from "../../services/user";
+import Header from "@/components/header/Header";
+import BeerList from "@/components/beerlist/Beerlist";
+import Footer from "@/components/footer/Footer";
 
 export default function Home() {
   return (
     <div>
-   <Header/>
-   <Login/>
-   <Footer/>
+      <Header />
+      <BeerList />
+      <Footer />
     </div>
-  )
+  );
 }
+export const getServerSideProps = async ({ req, res }) => {
+  try {
+    const token = getCookie("authorization", { req, res });
+    if (!token) throw new Error("invalid token");
+    // console.log(token)
+    verifica(token);
+    return { props: {} };
+  } catch (err) {
+    return {
+      redirect: {
+        permanent: false,
+        destination: "/login",
+      },
+
+      props: {},
+    };
+  }
+};

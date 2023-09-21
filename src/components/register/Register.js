@@ -1,4 +1,7 @@
-import React, { useState } from "react";
+import { setCookie } from "cookies-next";
+import { useRouter } from "next/router";
+import { useState } from "react";
+
 import {
   Box,
   Button,
@@ -11,28 +14,38 @@ import {
 } from "@chakra-ui/react";
 
 const FullScreenForm = () => {
-  const initialFormData = {
-    username: "",
+  const [formData, setFormData] = useState({
+    name: "",
     email: "",
     password: "",
-  };
+  });
 
-  const [formData, setFormData] = useState(initialFormData);
+  const [error, setError] = useState("");
+  const router = useRouter();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    console.log("Dados do formulário enviados:", formData);
-
-    setFormData(initialFormData);
-  };
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
+  const handleFormEdit = (event, name) => {
     setFormData({
       ...formData,
-      [name]: value,
+      [name]: event.target.value,
     });
+  };
+
+  const handleForm = async (event) => {
+    try {
+      event.preventDefault();
+      const response = await fetch(`/api/user/cadastro`, {
+        method: "POST",
+        body: JSON.stringify(formData),
+      });
+
+      const json = await response.json();
+      if (response.status !== 201) throw new Error(json);
+
+      setCookie("authorization", json);
+      router.push("/");
+    } catch (err) {
+      setError(err.message);
+    }
   };
 
   return (
@@ -54,19 +67,20 @@ const FullScreenForm = () => {
         boxShadow="xl"
       >
         <Text fontSize="2xl" fontWeight="bold" mb={4}>
-          Cadastre-se
+        Crie sua conta
         </Text>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleForm}>
           <VStack spacing={4} width="100%" maxWidth="400px" as="flex">
             <FormControl>
               <FormLabel htmlFor="username">Nome de Usuário</FormLabel>
               <Input
                 type="text"
-                id="username"
-                name="username"
-                value={formData.username}
-                onChange={handleInputChange}
+                id="name"
+                name="name"
+                value={formData.name}
+                onChange={(e) => handleFormEdit(e, "name")}
                 bgColor="#758599"
+                required
               />
             </FormControl>
             <FormControl>
@@ -76,8 +90,9 @@ const FullScreenForm = () => {
                 id="email"
                 name="email"
                 value={formData.email}
-                onChange={handleInputChange}
+                onChange={(e) => handleFormEdit(e, "email")}
                 bgColor="#758599"
+                required
               />
             </FormControl>
             <FormControl>
@@ -87,13 +102,16 @@ const FullScreenForm = () => {
                 id="password"
                 name="password"
                 value={formData.password}
-                onChange={handleInputChange}
+                onChange={(event) => handleFormEdit(event, "password")}
                 bgColor="#758599"
+                required
               />
             </FormControl>
+
             <Button type="submit" bg="#0B68F4" color="white" width="100%">
-              Entrar
+            Cadastrar
             </Button>
+            {error && <p>{error}</p>}
           </VStack>
         </form>
       </Box>

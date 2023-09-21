@@ -1,10 +1,10 @@
 import { login } from "../../../../services/user";
 
-export default function hundler(req, res) {
+export default function handler(req, res) {
   try {
-    const user = login(req.body);
-    res.status(201).json(user);
+    const userToken = login(req.body);
+    res.status(200).json(userToken);
   } catch (err) {
-    res.status(400).json(err.menssage);
+    res.status(400).json(err.message);
   }
 }
