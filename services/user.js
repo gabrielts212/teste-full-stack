@@ -15,6 +15,7 @@ function readToken(token) {
     throw new Error("Token invalido");
   }
 }
+
 export function verifica(token) {
   return readToken(token);
 }
@@ -28,6 +29,7 @@ export function cadastro(body) {
   const token = createToken(body);
   return token;
 }
+
 export function login(body) {
   const user = users.find(({ email }) => email === body.email);
   if (!user) throw new Error("Usuario não encontrado");

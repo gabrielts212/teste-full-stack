@@ -5,6 +5,6 @@ export default function handler(req, res) {
     const newUser = cadastro(req.body);
     res.status(201).json(newUser);
   } catch (err) {
-    res.status(400).json(err.menssage);
+    res.status(400).json("O usuário já possui cadastro");
   }
 }

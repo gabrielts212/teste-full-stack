@@ -8,11 +8,11 @@ import {
   VStack,
   Flex,
 } from "@chakra-ui/react";
-import CustomLink from "../../components/link/link";
+import CustomLink from "../link/link";
 import { useState } from "react";
 import { setCookie } from "cookies-next";
 import { useRouter } from "next/router";
-
+import MyButton from "../button/Button";
 const Login = () => {
   const [formData, setFormData] = useState({
     email: "",
@@ -38,9 +38,8 @@ const Login = () => {
 
       const json = await response.json();
       if (response.status !== 200) throw new Error(json);
-
       setCookie("authorization", json);
-      router.push("/");
+      router.push("/pagebeer");
     } catch (err) {
       setError(err.message);
     }
@@ -64,7 +63,7 @@ const Login = () => {
         borderRadius="xl"
         boxShadow="xl"
       >
-        <Text fontSize="2xl" fontWeight="bold" mb={4}>
+        <Text fontSize="2xl" fontWeight="bold" mb={4} color="blue.500">
           Faça login na sua conta
         </Text>
         <form onSubmit={handleForm}>
@@ -93,17 +92,20 @@ const Login = () => {
                 required
               />
             </FormControl>
-            <Button type="submit" bg="#0B68F4" color="white" width="100%">
+
+            <MyButton type="submit" bg="#0B68F4" color="white" width="100%">
+              {" "}
               Entrar
-            </Button>
+            </MyButton>
+
             {error && <p>{error}</p>}
           </VStack>
         </form>
         <CustomLink to="/cadastro">
- 
-    <Text  mt={4}     _hover={{ textDecoration: "none", color: "#0B68F4" }}>Ainda não tem uma conta? Cadastre-se</Text>
- 
-</CustomLink>
+          <Text mt={4} _hover={{ color: "#0B68F4" }}>
+            Ainda não tem uma conta? Cadastre-se
+          </Text>
+        </CustomLink>
       </Box>
     </Flex>
   );

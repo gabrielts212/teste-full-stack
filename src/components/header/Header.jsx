@@ -1,8 +1,9 @@
 import { Box, Flex, Text } from "@chakra-ui/react";
 import Image from "next/image";
 import Logo from "../../assets/favicon.ico";
-import CustomLink from "../../components/link/link";
-const Header = () => {
+import CustomLink from "../link/link";
+
+const Header = ({ title }) => {
   return (
     <Box>
       <Flex
@@ -13,7 +14,7 @@ const Header = () => {
         justifyContent="space-between"
       >
         <Box>
-          <CustomLink to="/login">
+          <CustomLink to="/">
             <Image
               src={Logo}
               alt="Logo"
@@ -24,7 +25,10 @@ const Header = () => {
           </CustomLink>
         </Box>
         <Box>
-          <Text as="h1" fontSize="2xl" fontWeight="bold"></Text>
+          <Text as="h1" fontSize="2xl" fontWeight="bold">
+            {" "}
+            {title}
+          </Text>
         </Box>
         <Box color="blue.500">
           <Text></Text>

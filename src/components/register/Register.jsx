@@ -1,7 +1,8 @@
 import { setCookie } from "cookies-next";
 import { useRouter } from "next/router";
 import { useState } from "react";
-
+import CustomLink from "../link/link";
+import MyButton from "../button/Button";
 import {
   Box,
   Button,
@@ -13,7 +14,7 @@ import {
   Flex,
 } from "@chakra-ui/react";
 
-const FullScreenForm = () => {
+const Register = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -40,9 +41,8 @@ const FullScreenForm = () => {
 
       const json = await response.json();
       if (response.status !== 201) throw new Error(json);
-
       setCookie("authorization", json);
-      router.push("/");
+      router.push("/pagebeer");
     } catch (err) {
       setError(err.message);
     }
@@ -66,8 +66,8 @@ const FullScreenForm = () => {
         borderRadius="xl"
         boxShadow="xl"
       >
-        <Text fontSize="2xl" fontWeight="bold" mb={4}>
-        Crie sua conta
+        <Text fontSize="2xl" fontWeight="bold" mb={4} color="blue.500">
+          Crie sua conta
         </Text>
         <form onSubmit={handleForm}>
           <VStack spacing={4} width="100%" maxWidth="400px" as="flex">
@@ -79,7 +79,7 @@ const FullScreenForm = () => {
                 name="name"
                 value={formData.name}
                 onChange={(e) => handleFormEdit(e, "name")}
-                bgColor="#758599"
+                bg="#758599"
                 required
               />
             </FormControl>
@@ -91,7 +91,7 @@ const FullScreenForm = () => {
                 name="email"
                 value={formData.email}
                 onChange={(e) => handleFormEdit(e, "email")}
-                bgColor="#758599"
+                bg="#758599"
                 required
               />
             </FormControl>
@@ -103,20 +103,27 @@ const FullScreenForm = () => {
                 name="password"
                 value={formData.password}
                 onChange={(event) => handleFormEdit(event, "password")}
-                bgColor="#758599"
+                bg="#758599"
                 required
               />
             </FormControl>
 
-            <Button type="submit" bg="#0B68F4" color="white" width="100%">
-            Cadastrar
-            </Button>
+            <MyButton type="submit" bg="#0B68F4" color="white" width="100%">
+              {" "}
+              Cadastrar
+            </MyButton>
+
             {error && <p>{error}</p>}
           </VStack>
         </form>
+        <CustomLink to="/">
+          <Text mt={4} _hover={{ color: "#0B68F4" }}>
+            Já possui uma conta?
+          </Text>
+        </CustomLink>
       </Box>
     </Flex>
   );
 };
 
-export default FullScreenForm;
+export default Register;
