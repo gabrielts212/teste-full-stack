@@ -7,7 +7,7 @@ const Header = ({ title }) => {
   return (
     <Box>
       <Flex
-        bg="blue.500"
+        bg="#0c67fe"
         p={4}
         color="white"
         alignItems="center"

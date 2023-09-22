@@ -18,17 +18,17 @@ export const getServerSideProps = async ({ req, res }) => {
     const token = getCookie("authorization", { req, res });
     if (!token) throw new Error("invalid token");
     verifica(token);
-    // console.log(token)
+
     return { props: {} };
   } catch (err) {
-    return { props: {} };
-    // return {
-    //   redirect: {
-    //     permanent: false,
-    //     destination: "/login",
-    //   },
+    // return { props: {} };
+    return {
+      redirect: {
+        permanent: false,
+        destination: "/",
+      },
 
-    //   props: {},
-    // };
+      props: {},
+    };
   }
 };

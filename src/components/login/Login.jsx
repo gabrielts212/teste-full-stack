@@ -48,7 +48,7 @@ const Login = () => {
   return (
     <Flex
       minH="90vh"
-      bg="#272727"
+      bg="#1e272e"
       color="white"
       display="flex"
       flexDirection="column"
@@ -63,7 +63,7 @@ const Login = () => {
         borderRadius="xl"
         boxShadow="xl"
       >
-        <Text fontSize="2xl" fontWeight="bold" mb={4} color="blue.500">
+        <Text fontSize="2xl" fontWeight="bold" mb={4} color="#0B68F4">
           Faça login na sua conta
         </Text>
         <form onSubmit={handleForm}>

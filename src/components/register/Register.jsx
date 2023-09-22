@@ -51,7 +51,7 @@ const Register = () => {
   return (
     <Flex
       minH="90vh"
-      bg="#272727"
+      bg="#1e272e"
       color="white"
       display="flex"
       flexDirection="column"
@@ -66,7 +66,7 @@ const Register = () => {
         borderRadius="xl"
         boxShadow="xl"
       >
-        <Text fontSize="2xl" fontWeight="bold" mb={4} color="blue.500">
+        <Text fontSize="2xl" fontWeight="bold" mb={4} color="#0B68F4">
           Crie sua conta
         </Text>
         <form onSubmit={handleForm}>
@@ -116,8 +116,8 @@ const Register = () => {
             {error && <p>{error}</p>}
           </VStack>
         </form>
-        <CustomLink to="/">
-          <Text mt={4} _hover={{ color: "#0B68F4" }}>
+        <CustomLink to="/" >
+          <Text mt={4} _hover={{ color: "#0B68F4" }} pl="8">
             Já possui uma conta?
           </Text>
         </CustomLink>

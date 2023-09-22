@@ -35,8 +35,8 @@ function BeerList() {
   }, [searchTerm, beers]);
 
   return (
-    <Box p={10} minH="90vh" bg="#272727" color="white">
-      <Heading as="h1" mb={6} textAlign="center">
+    <Box p={10} minH="90vh" bg="#1e272e" color="white">
+      <Heading as="h1" mb={6} textAlign="center"color="#0B68F4">
         Lista de Cervejas
       </Heading>
       <InputGroup mb={4}>
@@ -69,7 +69,7 @@ function BeerList() {
                 maxWidth: "2rem",
               }}
             />
-            <Heading as="h2" size="md" mb={2} color="blue.500" mt="5">
+            <Heading as="h2" size="md" mb={2} color="#0B68F4" mt="5">
               {beer.name}
             </Heading>
             <Text>
