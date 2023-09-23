@@ -49,7 +49,7 @@ const Login = () => {
     <Flex
       minH="90vh"
       bg="#1e272e"
-      color="white"
+      textColor="red"
       display="flex"
       flexDirection="column"
       justifyContent="center"
@@ -68,27 +68,35 @@ const Login = () => {
         </Text>
         <form onSubmit={handleForm}>
           <VStack spacing={4} width="100%" maxWidth="400px" as="flex">
-            <FormControl>
-              <FormLabel htmlFor="email">Email</FormLabel>
+            <FormControl isInvalid={error}>
+              <FormLabel htmlFor="email" color="white">
+                Email
+              </FormLabel>
               <Input
                 type="email"
                 id="email"
                 name="email"
                 value={formData.email}
                 onChange={(event) => handleFormEdit(event, "email")}
-                bgColor="#758599"
+                placeholder="E-mail"
+                bg="white"
+                color="black"
                 required
               />
             </FormControl>
-            <FormControl>
-              <FormLabel htmlFor="password">Senha</FormLabel>
+            <FormControl isInvalid={error}>
+              <FormLabel htmlFor="password" color="white">
+                Senha
+              </FormLabel>
               <Input
                 type="password"
                 id="password"
                 name="password"
                 value={formData.password}
                 onChange={(event) => handleFormEdit(event, "password")}
-                bgColor="#758599"
+                placeholder="Digite sua Senha"
+                bg="white"
+                color="black"
                 required
               />
             </FormControl>
@@ -102,7 +110,7 @@ const Login = () => {
           </VStack>
         </form>
         <CustomLink to="/cadastro">
-          <Text mt={4} _hover={{ color: "#0B68F4" }}>
+          <Text mt={4} _hover={{ color: "#0B68F4" }} color="white">
             Ainda não tem uma conta? Cadastre-se
           </Text>
         </CustomLink>
