@@ -1,39 +1,23 @@
-O teste consiste em criar uma aplicação que expõe uma API REST de um CRUD de usuário e uma aplicação web contendo uma interface para login e acesso a dados de uma API externa. 
+## Primeiro passo npm i e depois npm run dev ✔
 
-Depois de logado, o usuário da aplicação web deve poder acessar os dados da [Punk API v2](https://punkapi.com/). 
+## **1. Introdução**
 
-## Back-end 💻
-- Todos os endpoints de consulta de dados devem ter autenticação por webtoken ou similar.
-- Deve existir validação dos dados recebidos pela API.
-- O CRUD não precisa de interface, apenas o login e o cadastro
+O meu projeto é uma aplicação web que oferece funcionalidades de login, cadastro de usuários, e a capacidade de listar dados da Punk API v2. A aplicação é responsiva, ou seja, se adapta a diferentes dispositivos e utiliza autenticação por token para proteger os endpoints de consulta de dados. 
 
-## Front-end 🎨
-O front-end deve atender aos seguintes requisitos:
-- Interface de login e cadastro com feedbacks para usuário ou senha incorreta.
-- Listagem dos dados da Punk API v2.
-- Responsividade.
+## **4. Uso 🖱**
 
-## Extras 🌟
-O desenvolvimento dessas features é opcional.
+A aplicação possui as seguintes funcionalidades:
 
-- Filtragem dos dados da Punk API v2 por diferentes critérios, como nome, estilo de cerveja, teor alcoólico, etc.
-- Ordenação dos dados da Punk API v2 por diferentes campos, como nome, teor alcoólico, etc.
-- Comentários e avaliações: permitir que os usuários deixem comentários e avaliações para as cervejas.
-- Dockerfile com todas as dependências.
+- **Login e Cadastro:** Você pode se cadastrar como um novo usuário ou fazer login com as credenciais previamente registradas. Erros de usuário ou senha incorreta serão indicados visualmente.
+- **Listagem de Dados da Punk API:** Após fazer login, você terá acesso à listagem de dados da Punk API v2. que tera um filtro de pesquisa por nome.
 
-## Critérios de avaliação ✅
-- Funcionamento do projeto.
-- Estrutura do código.
-- Uso de boas práticas.
-- Cumprimento dos requisitos mínimos.
+## **5. Tecnologias Utilizadas 🖥**
 
-## Entrega 📦
+As principais tecnologias utilizadas no meu projeto
 
-- Um repositório git (fork deste).
-- Um README do projeto com o passo-a-passo para executar a aplicação.
-
-## Observações 📝
-
-1. Pode ser utilizado qualquer framework front-end, preprocessadores de css, task runners, bundlers, etc, de sua preferência, mas nenhum deles é de uso obrigatório.
-
-2. Não se deve fazer o commit de pastas como node_modules, o projeto deve instalar suas dependências a partir do package.json.
+- **Node.js :** Para construir o servidor da aplicação.
+- **Next:** Para construir a interface de usuário.
+- **JWT (JSON Web Tokens):** Para autenticação dos endpoints da API= https://jwt.io/.
+- **Fetch:** Para fazer solicitações à API da Punk API v2.
+- **Chakra UI:** Para estruturação  responsividade e estilo da interface.
+- **Variavel de Ambiente  .ENV:** Utilizada para armazenar de forma segura chaves de acesso e URLs da API.
